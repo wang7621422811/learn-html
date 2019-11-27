@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <style>
+        /*.two { background-color: tomato; position: fixed; top: 100px; bottom: 0; left: 0; right: 0; }*/
+
+
+
+        * { padding: 0; margin: 0; }
+        html, body, #app { width: 100%; height: 100%; }
+        #app { padding-top: 50px; }
+        .one { height: 100%; background-color: yellow;}
+        .two { background-color: tomato; position: fixed; top: 0; padding-top: 100px; bottom: 0; left: 0; right: 0; }
+        .v-enter-active, .v-leave-active { transition: all 0.3s; }
+        .v-enter, .v-leave-to { transform: translateX(100%); }
+        header { height: 50px; background-color: #000; width: 100%; position: fixed; top: 0; color: #fff; line-height: 50px; text-align: center; z-index: 100; }
+        .two header { top: 50px; background-color: #666; }
+    </style>
+</head>
+<body>
+<div id="app">
+    <header>我是一个标题</header>
+    <div class="one">
+        <p>
+            <router-link to="/foo">下一层</router-link>
+        </p>
+        <h1>第一层</h1>
+        <transition>
+            <router-view></router-view>
+        </transition>
+    </div>
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+    const Foo = {
+        template: `
+        <div class="whole-page two">
+          <router-link to="/">返回</router-link>
+          <header>我也是一个标题</header>
+          <h1>第二层</h1>
+          <transition>
+            <router-view></router-view>
+          </transition>
+        </div>
+      `
+    }
+    const routes = [
+        { path: '/foo', component: Foo }
+    ]
+    const router = new VueRouter({ routes })
+    const app = new Vue({ router }).$mount('#app')
+</script>
+</body>
+</html>

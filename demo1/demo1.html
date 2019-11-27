@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+    <style type="text/css">
+        .box1 {
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            position: absolute;
+            z-index: 1;
+        }
+        .box2 {
+            height: 200px;
+            width: 200px;
+            background-color: yellow;
+            position: relative;
+            left: 100px;
+            top: 100px;
+            z-index: 2;
+        }
+        .box3 {
+            height: 200px;
+            width: 200px;
+            background-color: yellowgreen;
+            position: absolute;
+            left: 208px;
+            top: 208px;
+            z-index: 3;
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+
+    <div class="box2"></div>
+
+    <div class="box3">
+        <span style="opacity: 100%"><p>我也是透明的吗?</p></span>
+    </div>
+    <p>我也是透明的吗?</p>
+</body>
+
+</html>
