@@ -11,34 +11,34 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            todo:Object,
-            index:Number,
-            deleteItem:Function
-        },
-        data() {
-            return {
-                bgColor: 'white', //背景颜色
-                isShow: false     //是否显示
-            }
-        },
-        methods: {
-            handleEnter(isEnter) {
-                if (isEnter) {
-                    this.bgColor = 'green'
-                    this.isShow = true
-                } else {
-                    this.bgColor='white', //背景颜色
-                    this.isShow=false     //是否显示
-                }
-            },
-            deleteItem1() {
-                const {todo,index,deleteItem} = this
-                deleteItem(index)
-            }
-        }
+export default {
+  props: {
+    todo: Object,
+    index: Number,
+    deleteItem: Function
+  },
+  data () {
+    return {
+      bgColor: 'white', // 背景颜色
+      isShow: false // 是否显示
     }
+  },
+  methods: {
+    handleEnter (isEnter) {
+      if (isEnter) {
+        this.bgColor = 'green'
+        this.isShow = true
+      } else {
+        this.bgColor = 'white', // 背景颜色
+        this.isShow = false // 是否显示
+      }
+    },
+    deleteItem1 () {
+      const {todo, index, deleteItem} = this
+      deleteItem(index)
+    }
+  }
+}
 </script>
 
 <style scoped>

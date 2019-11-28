@@ -9,30 +9,30 @@
 </template>
 
 <script>
-    export default {
-        props : {
-            todos:Array,
-            deleteCompleteTodos:Function,
-            selectAllTodos: Function
-        },
-        computed: {
-            completeSize () {
-                return this.todos.reduce((preTotal,todo) => preTotal + (todo.complete?1:0), 0)
-            },
-            isAllCheck: {
-                get() {
-                    return this.completeSize == this.todos.length && this.todos.length > 0
-                },
-                set(value) {
-                    //value 当前checkbox最新的值
-                    this.selectAllTodos(value)
-                }
-            }
-        },
-        deleteCompleteTodos() {
-
-        }
+export default {
+  props: {
+    todos: Array,
+    deleteCompleteTodos: Function,
+    selectAllTodos: Function
+  },
+  computed: {
+    completeSize () {
+      return this.todos.reduce((preTotal, todo) => preTotal + (todo.complete ? 1 : 0), 0)
+    },
+    isAllCheck: {
+      get () {
+        return this.completeSize == this.todos.length && this.todos.length > 0
+      },
+      set (value) {
+        // value 当前checkbox最新的值
+        this.selectAllTodos(value)
+      }
     }
+  },
+  deleteCompleteTodos () {
+
+  }
+}
 </script>
 
 <style scoped>

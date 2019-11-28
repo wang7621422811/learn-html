@@ -7,14 +7,11 @@
 const TODOS_KEY = 'todos_key'
 export default {
 
-  saveTodos(todos) {
-    //将todos最新的值保存到localStorage
-    window.localStorage.setItem(TODOS_KEY,JSON.stringify(todos))
+  saveTodos (todos) {
+    // 将todos最新的值保存到localStorage
+    window.localStorage.setItem(TODOS_KEY, JSON.stringify(todos))
   },
-  readTodos() {
+  readTodos () {
     return JSON.parse(window.localStorage.getItem(TODOS_KEY) || '[]')
   }
 }
-
-
-

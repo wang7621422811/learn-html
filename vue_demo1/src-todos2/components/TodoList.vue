@@ -5,14 +5,14 @@
 </template>
 
 <script>
-  import TodoItem from "./TodoItem";
-    export default {
-        components: {TodoItem},
-        props: {
-           todos: Array,
-            deleteItem:Function
-       }
-    }
+import TodoItem from './TodoItem'
+export default {
+  components: {TodoItem},
+  props: {
+    todos: Array,
+    deleteItem: Function
+  }
+}
 </script>
 
 <style scoped>
@@ -32,6 +32,5 @@
     padding-left: 5px;
     margin-top: 10px;
   }
-
 
 </style>
