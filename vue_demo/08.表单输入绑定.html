@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单输入绑定</title>
+</head>
+<body>
+    <div id="demo">
+        <form action="#" @submit.prevent="handleSubmit">
+            用户名:<input type="text" v-model="username"><br/>
+            密码:<input type="password" v-model="pwd"><br/>
+            性别:
+            <input type="radio" id="female" value="女" v-model="sex">
+            <label for="female">女</label>
+            <input type="radio" id="male" value="男" v-model="sex">
+            <label for="male">男</label><br/>
+            爱好:<input type="checkbox" value="篮球" v-model="likes">篮球
+            <input type="checkbox" value="乒乓球" v-model="likes">乒乓球
+            <input type="checkbox" value="足球" v-model="likes">足球
+            <br/>
+            城市:<select v-model="cityId"><br/>
+            <option value="">未选择</option>
+            <option :value="city.id" v-for="(city,index) in allCitys" :key="index">{{city.name}}</option>
+            </select><br/>
+            介绍<input type="text"><br/>
+            <button type="submit">注册</button>
+        </form>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#demo',
+        data: {
+            username: '',
+            pwd: '',
+            sex: '女',
+            likes: [],
+            allCitys:[{id:1,name:'BJ'},{id:1,name:'SH'},{id:3,name:'GD'}],
+            cityId:''
+        },
+        methods: {
+            handleSubmit () {
+                alert(this.username + this.pwd)
+            }
+        }
+    })
+</script>
+</html>

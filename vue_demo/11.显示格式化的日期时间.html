@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示格式化的日期时间</title>
+</head>
+<body>
+    <div id="demo">
+        <h2>显示格式化的日期时间</h2>
+        <p>{{date}}</p>
+        <p>完整版: {{date | dateFormat}}</p>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.js"></script>
+<script>
+
+    Vue.filter('dateFormat', function (value) {
+        return moment(value).format('YYYY-MM-DD HH:mm:ss'); // 十一月 28日 2019, 11:45:33 中午
+    })
+
+
+
+    new Vue({
+        el: '#demo',
+        data: {
+            date: new Date()
+        }
+    })
+</script>
+</html>
