@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="demo">
+        姓：<input type="text" class="text" v-model="firstName">
+        名字：<input type="text" class="text" v-model="lastName">
+        姓名1：<input type="text" class="text" v-model="fullName1">
+        姓名2：<input type="text" class="text">
+        姓名3：<input type="text" class="text" v-model="fullName3">
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#demo',
+        data: {
+            firstName:'A',
+            lastName:'B',
+        },
+        computed:{
+            fullName1() {
+                console.log()
+                return this.firstName + ' ' + this.lastName
+            },
+            fullName3: {
+                get:function() {
+                    return this.firstName + ' ' + this.lastName
+                },
+                set: function(value) {
+                    const values = value.split(' ')
+                    this.firstName = values[0]
+                    this.lastName = values[1]
+                }
+            }
+        },
+
+
+
+
+    })
+</script>
+</html>
